@@ -6,6 +6,11 @@
                         " turn on filetype indentation plugin
 filetype plugin indent on
 syntax on               " syntax highlighting on
+if has ("gui_running")
+    colorscheme camo " torte
+    set guioptions-=m
+    set guioptions-=T
+endif
 set ofu=syntaxcomplete#Complete
                         " make backspace work how I like
 set backspace=indent,eol,start
