@@ -8,5 +8,3 @@ alias vi='vim'
 alias python='python2.7'
 
 alias cls="echo -ne '\033c'"
-
-alias extmon='xrandr --output LVDS1 --mode 1024x768'

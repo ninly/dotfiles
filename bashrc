@@ -11,6 +11,11 @@ source .bash_aliases
 # Load custom prompt
 source .bash_prompt
 
+# Load configurations specific to this machine
+if [ -e .bash_local ]; then
+    source .bash_local
+fi
+
 # Default file permissions 664 (775 for dirs)
 umask 002
 

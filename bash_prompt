@@ -18,11 +18,13 @@ then
     NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
     NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
 fi
+
 }
 
 bash_prompt() {
 local NONE="\[\033[0m\]"    # unsets color to term's fg color
-local EXITSTATUS="$?"
+
+local EXITSTATUS="$?"       # get exit status for interactive prompt (TODO)
 
 # regular colors
 local K="\[\033[0;30m\]"    # black
@@ -63,11 +65,17 @@ then
     source .server_colors;
 fi
 
+
+if [ ${EXITSTATUS} -eq 0 ]; then
+    local PC=$G
+else
+    local PC=$R
+fi
+
 # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
 # extra backslash in front of \$ to make bash colorize the prompt
 
-# Nat's Colored Prompt
-PS1="${EMK}\n[${HC}\d ${HC}\t${EMK}] \n${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD} ${EMK}]${UC}\\$ ${NONE}"
+PS1="${EMK}\n[${HC}\d ${HC}\t${EMK}] \n${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}] ${PC}\\$ ${NONE}"
 
 }
 
