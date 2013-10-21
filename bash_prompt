@@ -5,6 +5,14 @@
 ## http://stackoverflow.com/posts/104036/revisions
 
 bash_prompt_command() {
+# Set up exit status notifier
+EXITSTATUS="$?"
+if [[ ${EXITSTATUS} -eq 0 ]]; then
+    PC="\[\033[0;32m\]"
+else
+    PC="\[\033[0;31m\]"
+fi
+
 # How many characters of the $PWD should be kept
 local pwdmaxlen=25
 # Indicate that there has been dir truncation
@@ -19,12 +27,12 @@ then
     NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
 fi
 
+export PC # TODO: Fix this so that dollarsign changes color per exit status
+          # Problem is PS1 is expanded only once, upon shell instantiation ???
 }
 
 bash_prompt() {
 local NONE="\[\033[0m\]"    # unsets color to term's fg color
-
-local EXITSTATUS="$?"       # get exit status for interactive prompt (TODO)
 
 # regular colors
 local K="\[\033[0;30m\]"    # black
@@ -37,45 +45,38 @@ local C="\[\033[0;36m\]"    # cyan
 local W="\[\033[0;37m\]"    # white
 
 # empahsized (bolded) colors
-local EMK="\[\033[1;30m\]"
-local EMR="\[\033[1;31m\]"
-local EMG="\[\033[1;32m\]"
-local EMY="\[\033[1;33m\]"
-local EMB="\[\033[1;34m\]"
-local EMM="\[\033[1;35m\]"
-local EMC="\[\033[1;36m\]"
-local EMW="\[\033[1;37m\]"
+local EmK="\[\033[1;30m\]"
+local EmR="\[\033[1;31m\]"
+local EmG="\[\033[1;32m\]"
+local EmY="\[\033[1;33m\]"
+local EmB="\[\033[1;34m\]"
+local EmM="\[\033[1;35m\]"
+local EmC="\[\033[1;36m\]"
+local EmW="\[\033[1;37m\]"
 
 # background colors
-local BGK="\[\033[40m\]"
-local BGR="\[\033[41m\]"
-local BGG="\[\033[42m\]"
-local BGY="\[\033[43m\]"
-local BGB="\[\033[44m\]"
-local BGM="\[\033[45m\]"
-local BGC="\[\033[46m\]"
-local BGW="\[\033[47m\]"
+local BgK="\[\033[40m\]"
+local BgR="\[\033[41m\]"
+local BgG="\[\033[42m\]"
+local BgY="\[\033[43m\]"
+local BgB="\[\033[44m\]"
+local BgM="\[\033[45m\]"
+local BgC="\[\033[46m\]"
+local BgW="\[\033[47m\]"
 
 local UC=$W                 # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
-local HC=$EMY
+local HC=$EmY
 
 if [ -e .server_colors ]
 then
     source .server_colors;
 fi
 
-
-if [ ${EXITSTATUS} -eq 0 ]; then
-    local PC=$G
-else
-    local PC=$R
-fi
-
 # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
 # extra backslash in front of \$ to make bash colorize the prompt
 
-PS1="${EMK}\n[${HC}\d ${HC}\t${EMK}] \n${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}] ${PC}\\$ ${NONE}"
+PS1="${EmK}\n[${HC}\d ${HC}\t${EmK}] \n${EmK}[${UC}\u${EmK}@${UC}\h ${EmB}\${NEW_PWD}${EmK}] ${PC}\\$ ${NONE}"
 
 }
 
