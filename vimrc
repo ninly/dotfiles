@@ -1,5 +1,5 @@
 "
-" Jason Conklin's vimrc file
+" My vimrc file
 " 
 
 " GENERAL SETTINGS
@@ -62,24 +62,3 @@ highlight LineNr ctermfg=DarkGrey
 
 " PYTHON IDE
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-" HASKELL MODE
-au BufEnter *.hs compiler ghc
-:let g:haddock_browser="/usr/bin/firefox"
-:let g:haddock_indexfiledir="~/.vim/"
-
-" Experimental WP mode for writing
-" From Seth Brown's blog, http://drbunsen.org/
-func! WordProcessorMode() 
-  setlocal formatoptions=1 
-  setlocal noexpandtab 
-  map j gj 
-  map k gk
-  setlocal spell spelllang=en_us 
-  set thesaurus+=/users/ninly/.vim/thesaurus/mthesaur.txt
-  set complete+=s
-  set formatprg=par
-  setlocal wrap 
-  setlocal linebreak 
-endfu 
-com! WP call WordProcessorMode()
