@@ -6,16 +6,21 @@
                         " turn on filetype indentation plugin
 filetype plugin indent on
 syntax on               " syntax highlighting on
-if has ("gui_running")
-    colorscheme camo " torte
-    set guioptions-=m
-    set guioptions-=T
+
+if has ("gui_running")  " only set if running as gvim
+    colorscheme camo        " torte is nice, too -- higher contrast
+    set guioptions-=m       " no menu
+    set guioptions-=T       " no taskbar
+    set visualbell t_vb=    " hush up
+else                        " otherwise set these (console vim)
+    colorscheme torte
+    set noerrorbells visualbell t_vb=
 endif
+
 set ofu=syntaxcomplete#Complete
                         " make backspace work how I like
 set backspace=indent,eol,start
 set nocompatible        " noncompatible with vi
-set noerrorbells        " shhh...
 set expandtab           " spaces, not real tabs
 set incsearch           " enable incremental search
 set laststatus=2        " always show status bar
@@ -33,12 +38,16 @@ set tabstop=4           " default tabs at 4 columns
 set shiftwidth=4        " default shift 4 columns at a time
 set nowrap              " don't wrap lines
 
+                        " config TAB completion in command mode
+                        " remove ':list' if scroll-up is problematic
+set wildmode=longest:list
+
                         " change line nos. from yellow to grey
 highlight LineNr ctermfg=DarkGrey
 
 " KEYMAPPING
                         " F2 inserts current date/time in normal and insert modes
-                        " Conflict with VimTdb
+                        " *** Conflict with VimTdb ***
 " :map! <F2> <C-R>=strftime("%c")<CR><Esc>
                         
                         " ts (timestamp) to insert current date/time in normal and insert modes
@@ -53,7 +62,7 @@ highlight LineNr ctermfg=DarkGrey
 :map tt :TlistToggle<CR>
                         " update project view (Taglist Update)
 :map tu :TlistUpdate<CR>
-                        " add file to taglist
+                        " add current file to taglist
 :map ta :TlistAddFiles 
                         " experimental alternative tab navigation
 " :map td :tabclose<CR>

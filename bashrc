@@ -16,6 +16,10 @@ if [ -e .bash_local ]; then
     source .bash_local
 fi
 
+# In Arch Linux, source this to turn on bash completion
+# (or install bash-completion package)
+# source /usr/share/git/completion/git-completion.bash
+
 # Default file permissions 664 (775 for dirs)
 umask 002
 
