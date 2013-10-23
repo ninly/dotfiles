@@ -52,6 +52,8 @@ highlight LineNr ctermfg=DarkGrey
                         " *** Conflict with VimTdb ***
 " :map! <F2> <C-R>=strftime("%c")<CR><Esc>
                         
+                        " remap escape in normal mode
+:inoremap jk <esc>
                         " ts (timestamp) to insert current date/time in normal and insert modes
 :map ts a<C-R>=strftime("%c")<CR><Esc>
                         " tn to open new tab (w/optional filename entry)
