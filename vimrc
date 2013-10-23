@@ -11,6 +11,7 @@ if has ("gui_running")  " only set if running as gvim
     colorscheme camo        " torte is nice, too -- higher contrast
     set guioptions-=m       " no menu
     set guioptions-=T       " no taskbar
+    set guioptions-=r       " no taskbar
     set visualbell t_vb=    " hush up
 else                        " otherwise set these (console vim)
     colorscheme torte
