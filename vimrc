@@ -8,7 +8,8 @@ filetype plugin indent on
 syntax on               " syntax highlighting on
 
 if has ("gui_running")  " only set if running as gvim
-    colorscheme camo        " torte is nice, too -- higher contrast
+    set background=dark     " light on dark
+    colorscheme solarized   " camo, torte
     set guioptions-=m       " no menu
     set guioptions-=T       " no taskbar
     set guioptions-=r       " no right scrollbar
