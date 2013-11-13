@@ -16,7 +16,7 @@ if has ("gui_running")  " only set if running as gvim
     set guioptions-=L       " no left scrollbar on vert split
     set visualbell t_vb=    " hush up
                             " fonts for (cyg)win, linux
-    set guifont=Inconsolata,Consolas:h12
+    set guifont=Inconsolata,Consolas
 else                        " otherwise set these (console vim)
     colorscheme torte
     set noerrorbells visualbell t_vb=
