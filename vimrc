@@ -29,7 +29,8 @@ set nocompatible        " noncompatible with vi
 set expandtab           " spaces, not real tabs
 set incsearch           " enable incremental search
 set laststatus=2        " always show status bar
-set number              " activate line numbers in left margin
+set number              " activate absolute line numbers
+set relativenumber      " use line numbers relative to current position
 set numberwidth=5       " 5 columns for line numbers
 set ruler               " show cursor position, lower-left
 set scrolloff=3         " begin scrolling 3 lines from window's edge
