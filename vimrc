@@ -56,6 +56,13 @@ highlight LineNr ctermfg=DarkGrey
                         " *** Conflict with VimTdb ***
 " :map! <F2> <C-R>=strftime("%c")<CR><Esc>
                         
+                        " automatic switching of relative line numbers
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+if has ("gui_running")  " only run if running as gvim
+    autocmd FocusLost * :set norelativenumber
+    autocmd FocusGained * :set relativenumber
+endif
                         " remap escape in normal mode
 :inoremap jk <esc>
                         " ts (timestamp) to insert current date/time in normal and insert modes
