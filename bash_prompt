@@ -76,7 +76,7 @@ fi
 # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
 # extra backslash in front of \$ to make bash colorize the prompt
 
-PS1="${EmK}\n[${HC}\d ${HC}\t${EmK}] \n${EmK}[${UC}\u${EmK}@${UC}\h ${EmB}\${NEW_PWD}${EmK}] ${W}\\$ ${NONE}"
+PS1="${EmK}\n\[${HC}\d ${HC}\t${EmK}\] \n${EmK}\[${UC}\u${EmK}@${UC}\h ${EmB}\${NEW_PWD}${EmK}\] ${W}\\$ ${NONE}"
 
 }
 
