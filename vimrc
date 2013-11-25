@@ -25,7 +25,7 @@ endif
 set ofu=syntaxcomplete#Complete
                         " make backspace work how I like
 set backspace=indent,eol,start
-set nocompatible        " noncompatible with vi
+set nocompatible        " noncompatible with vi (default)
 set expandtab           " spaces, not real tabs
 set incsearch           " enable incremental search
 set laststatus=2        " always show status bar
@@ -43,6 +43,8 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%c]%=[%p%%][%O]
 set tabstop=4           " default tabs at 4 columns
 set shiftwidth=4        " default shift 4 columns at a time
 set nowrap              " don't wrap lines
+                        " set crypto algorithm used for :X
+set cryptmethod=blowfish
 
                         " config TAB completion in command mode
                         " remove ':list' if scroll-up is problematic
