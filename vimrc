@@ -45,6 +45,8 @@ set shiftwidth=4        " default shift 4 columns at a time
 set nowrap              " don't wrap lines
                         " set crypto algorithm used for :X
 set cryptmethod=blowfish
+                        " shut off sidechannels for encrypted buffers
+autocmd BufReadPost * if &key != "" | set nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
 
                         " config TAB completion in command mode
                         " remove ':list' if scroll-up is problematic
