@@ -15,7 +15,7 @@ URxvt*scrollBar:                        false
 ! URxvt*scrollBar_align:                mode
 ! URxvt*thickness:                      number
 URxvt*scrollTtyOutput:                  false
-! URxvt*scrollTtyKeypress:              boolean
+URxvt*scrollTtyKeypress:                true
 ! URxvt*scrollWithBuffer:               boolean
 ! URxvt*inheritPixmap:                  boolean
 ! URxvt*transparent:                    boolean
