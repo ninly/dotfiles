@@ -1,8 +1,11 @@
-"
-" My vimrc file
-" 
+"====================
+" ninly's vimrc file
+"====================
 
-" GENERAL SETTINGS
+"~~~~~~~~~~~~~~~~~~
+" General settings
+"~~~~~~~~~~~~~~~~~~
+
                         " turn on filetype indentation plugin
 filetype plugin indent on
 syntax on               " syntax highlighting on
@@ -25,7 +28,6 @@ endif
 set ofu=syntaxcomplete#Complete
                         " make backspace work how I like
 set backspace=indent,eol,start
-set nocompatible        " noncompatible with vi (default)
 set expandtab           " spaces, not real tabs
 set incsearch           " enable incremental search
 set laststatus=2        " always show status bar
@@ -36,7 +38,7 @@ set ruler               " show cursor position, lower-left
 set scrolloff=3         " begin scrolling 3 lines from window's edge
 set showcmd             " show the command being entered
 set noshowmode          " do not show current mode (--INSERT--, etc.)
-set sidescrolloff=5     " begin scrolling 3 columns from window's edge
+set sidescrolloff=3     " begin scrolling 3 columns from window's edge
 set nostartofline       " don't start me out at column 0
                         " format status bar with file info
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%c]%=[%p%%][%O]
@@ -55,7 +57,11 @@ set wildmode=longest:list
                         " change line nos. from yellow to grey
 highlight LineNr ctermfg=DarkGrey
 
+"~~~~~~~~~~~~
 " KEYMAPPING
+"~~~~~~~~~~~~
+                        " reformat current (inner) paragraph with Q
+noremap Q gqip
                         " F2 inserts current date/time in normal and insert modes
                         " *** Conflict with VimTdb ***
 " :map! <F2> <C-R>=strftime("%c")<CR><Esc>
@@ -67,26 +73,40 @@ if has ("gui_running")  " only run if running as gvim
     autocmd FocusLost * :set norelativenumber
     autocmd FocusGained * :set relativenumber
 endif
-                        " remap escape in normal mode
-:inoremap jk <esc>
                         " ts (timestamp) to insert current date/time in normal and insert modes
-:map ts a<C-R>=strftime("%c")<CR><Esc>
+:noremap ts a<C-R>=strftime("%c")<CR><Esc>
                         " tn to open new tab (w/optional filename entry)
-:map tn :tabnew 
+:noremap tn :tabnew 
                         " to to close all tabs other than the current
-:map to :tabo
+" :noremap to :tabo
                         " open task list ('To Do')
-:map td :TaskList<CR>
+" :noremap td :TaskList<CR>
                         " turn on project view (Taglist Toggle)
-:map tt :TlistToggle<CR>
+:noremap tt :TlistToggle<CR>
                         " update project view (Taglist Update)
-:map tu :TlistUpdate<CR>
+:noremap tu :TlistUpdate<CR>
                         " add current file to taglist
-:map ta :TlistAddFiles 
+:noremap ta :TlistAddFiles 
                         " experimental alternative tab navigation
-" :map td :tabclose<CR>
-" :map tj :tabnext<CR>
-" :map tk :tabprev<CR>
+" :noremap td :tabclose<CR>
+" :noremap tj :tabnext<CR>
+" :noremap tk :tabprev<CR>
 
+"~~~~~~~~~~~~
 " PYTHON IDE
+"~~~~~~~~~~~~
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+cd $HOME
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Import experimental and local features
+"
+" If $HOME/local.vim exists on current machine, it is sourced to include
+" experimental features or stuff that is only used on this machine.
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if filereadable("local.vim")
+    source local.vim
+endif
+
