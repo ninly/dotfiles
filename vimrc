@@ -21,6 +21,7 @@ if has ("gui_running")  " only set if running as gvim
                             " fonts for (cyg)win, linux
     set guifont=Inconsolata,Consolas
 else                        " otherwise set these (console vim)
+    set background=dark
     colorscheme solarized
     set noerrorbells visualbell t_vb=
 endif
