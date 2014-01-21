@@ -2,10 +2,23 @@
 " ninly's vimrc file
 "====================
 
+"~~~~~~~~~~~~~~~~~~~~~~~
+" Vundle package manager
+"~~~~~~~~~~~~~~~~~~~~~~~
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+Bundle 'mhinz/vim-startify'
+
 "~~~~~~~~~~~~~~~~~~
 " General settings
 "~~~~~~~~~~~~~~~~~~
-
                         " turn on filetype indentation plugin
 filetype plugin indent on
 syntax on               " syntax highlighting on
@@ -92,6 +105,16 @@ endif
 " :noremap td :tabclose<CR>
 " :noremap tj :tabnext<CR>
 " :noremap tk :tabprev<CR>
+
+"~~~~~~~~~~~~~~~~~~~
+" Startify options
+"~~~~~~~~~~~~~~~~~~~
+let g:startify_skiplist = [
+       \ 'COMMIT_EDITMSG',
+       \ $VIMRUNTIME .'/doc',
+       \ 'bundle/.*/doc',
+       \ '\.DS_Store'
+       \ ]
 
 "~~~~~~~~~~~~
 " PYTHON IDE
