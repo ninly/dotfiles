@@ -110,11 +110,14 @@ endif
 " Startify options
 "~~~~~~~~~~~~~~~~~~~
 let g:startify_skiplist = [
-       \ 'COMMIT_EDITMSG',
-       \ $VIMRUNTIME .'/doc',
-       \ 'bundle/.*/doc',
-       \ '\.DS_Store'
-       \ ]
+  \ 'COMMIT_EDITMSG',
+  \ $VIMRUNTIME .'/doc',
+  \ 'bundle/.*/doc',
+  \ '\.DS_Store'
+  \ ]
+
+let g:startify_custom_header =
+  \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
 "~~~~~~~~~~~~
 " PYTHON IDE
