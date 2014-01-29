@@ -117,14 +117,12 @@ let g:startify_skiplist = [
   \ ]
 
 let g:startify_custom_header =
-  \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
+  \ map(split(system('fortune | cowthink -f dragon'), '\n'), '"   ". v:val') + ['','']
 
 "~~~~~~~~~~~~
 " PYTHON IDE
 "~~~~~~~~~~~~
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-cd $HOME
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Import experimental and local features
@@ -133,7 +131,10 @@ cd $HOME
 " experimental features or stuff that is only used on this machine.
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+cd $HOME
+
 if filereadable("local.vim")
     source local.vim
 endif
 
+cd %:p:h
