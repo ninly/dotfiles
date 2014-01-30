@@ -5,16 +5,19 @@
 "~~~~~~~~~~~~~~~~~~~~~~~
 " Vundle package manager
 "~~~~~~~~~~~~~~~~~~~~~~~
-set nocompatible              " be iMproved
-filetype off                  " required!
+if has("unix")
+    set nocompatible              " be iMproved
+    filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-Bundle 'mhinz/vim-startify'
+    Bundle 'gmarik/vundle'
+    Bundle 'mhinz/vim-startify'
+
+endif
 
 "~~~~~~~~~~~~~~~~~~
 " General settings
@@ -109,15 +112,17 @@ endif
 "~~~~~~~~~~~~~~~~~~~
 " Startify options
 "~~~~~~~~~~~~~~~~~~~
-let g:startify_skiplist = [
-  \ 'COMMIT_EDITMSG',
-  \ $VIMRUNTIME .'/doc',
-  \ 'bundle/.*/doc',
-  \ '\.DS_Store'
-  \ ]
+if has("unix")
+    let g:startify_skiplist = [
+      \ 'COMMIT_EDITMSG',
+      \ $VIMRUNTIME .'/doc',
+      \ 'bundle/.*/doc',
+      \ '\.DS_Store'
+      \ ]
 
-let g:startify_custom_header =
-  \ map(split(system('fortune | cowthink -f dragon'), '\n'), '"   ". v:val') + ['','']
+    let g:startify_custom_header =
+      \ map(split(system('fortune | cowthink -f dragon'), '\n'), '"   ". v:val') + ['','']
+endif
 
 "~~~~~~~~~~~~
 " PYTHON IDE
