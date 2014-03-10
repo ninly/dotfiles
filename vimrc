@@ -77,6 +77,9 @@ highlight LineNr ctermfg=DarkGrey
 "~~~~~~~~~~~~
 " KEYMAPPING
 "~~~~~~~~~~~~
+                        " :sudow to save to read-only files (from catonmat.net)
+cnoremap sudow w !sudo tee % >/dev/null
+
                         " reformat current (inner) paragraph with Q
 noremap Q gqip
                         " F2 inserts current date/time in normal and insert modes
