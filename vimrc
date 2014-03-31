@@ -13,9 +13,11 @@ if has("unix")
     call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
     Bundle 'gmarik/vundle'
+" add other bundles
     Bundle 'mhinz/vim-startify'
+    Bundle 'vivien/vim-addon-linux-coding-style'
 
 endif
 
@@ -126,6 +128,14 @@ if has("unix")
     let g:startify_custom_header =
       \ map(split(system('fortune | cowthink -f dragon'), '\n'), '"   ". v:val') + ['','']
 endif
+
+" KERNEL CODING STYLE
+
+                        " match trailing whitespace and throw error
+match ErrorMsg '\s\+$'
+                        " delete trailing whitespace
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+
 
 "~~~~~~~~~~~~
 " PYTHON IDE
