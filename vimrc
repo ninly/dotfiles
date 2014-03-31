@@ -67,7 +67,7 @@ set nowrap              " don't wrap lines
                         " set crypto algorithm used for :X
 set cryptmethod=blowfish
                         " shut off sidechannels for encrypted buffers
-autocmd BufReadPost * if &key != "" | set nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
+autocmd BufReadPost * if &key != "" | set nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
 
                         " config TAB completion in command mode
                         " remove ':list' if scroll-up is problematic
@@ -87,7 +87,7 @@ noremap Q gqip
                         " F2 inserts current date/time in normal and insert modes
                         " *** Conflict with VimTdb ***
 " :map! <F2> <C-R>=strftime("%c")<CR><Esc>
-                        
+
                         " automatic switching of relative line numbers
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
@@ -98,7 +98,7 @@ endif
                         " ts (timestamp) to insert current date/time in normal and insert modes
 :noremap ts a<C-R>=strftime("%c")<CR><Esc>
                         " tn to open new tab (w/optional filename entry)
-:noremap tn :tabnew 
+:noremap tn :tabnew
                         " to to close all tabs other than the current
 " :noremap to :tabo
                         " open task list ('To Do')
@@ -108,7 +108,7 @@ endif
                         " update project view (Taglist Update)
 :noremap tu :TlistUpdate<CR>
                         " add current file to taglist
-:noremap ta :TlistAddFiles 
+:noremap ta :TlistAddFiles
                         " experimental alternative tab navigation
 " :noremap td :tabclose<CR>
 " :noremap tj :tabnext<CR>
