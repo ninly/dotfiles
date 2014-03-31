@@ -31,6 +31,7 @@ complete -cf sudo
 
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
+export HISTIGNORE=history:pwd:ls:exit:[bf]g
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/games:/home/ninly/bin
 #export PKG_CONFIG_PATH=/home/ninly/lib/pkgconfig
 #export LD_LIBRARY_PATH=/home/ninly/lib:/usr/local/lib:
