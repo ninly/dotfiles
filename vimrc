@@ -98,7 +98,7 @@ endif
                         " ts (timestamp) to insert current date/time in normal and insert modes
 :noremap ts a<C-R>=strftime("%c")<CR><Esc>
                         " tn to open new tab (w/optional filename entry)
-:noremap tn :tabnew
+:noremap tn :tabnew 
                         " to to close all tabs other than the current
 " :noremap to :tabo
                         " open task list ('To Do')
@@ -108,7 +108,7 @@ endif
                         " update project view (Taglist Update)
 :noremap tu :TlistUpdate<CR>
                         " add current file to taglist
-:noremap ta :TlistAddFiles
+:noremap ta :TlistAddFiles 
                         " experimental alternative tab navigation
 " :noremap td :tabclose<CR>
 " :noremap tj :tabnext<CR>
